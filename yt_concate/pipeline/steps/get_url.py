@@ -41,5 +41,6 @@ class GetVideoList(Step):
                 # keyError will arise here
                 break
         print(len(video_links))  #### this can be remove later
+        print(video_links)
         return video_links
 

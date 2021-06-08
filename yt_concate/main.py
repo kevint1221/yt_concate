@@ -10,6 +10,7 @@ This Project will seize all youtube video from channel, download each video subt
 """
 
 from yt_concate.pipeline.steps.get_url import GetVideoList
+from yt_concate.pipeline.steps.download_caption import DownloadCaption
 from yt_concate.pipeline.steps.step import StepException
 from yt_concate.pipeline.pipeline import Pipeline
 from yt_concate.user_input import inputs
@@ -21,6 +22,7 @@ from yt_concate.user_input import inputs
 def main():
     steps = [
         GetVideoList(),
+        DownloadCaption(),
     ]
     p = Pipeline(steps)
     p.run(inputs)
