@@ -11,21 +11,28 @@ This Project will seize all youtube video from channel, download each video subt
 
 from yt_concate.pipeline.steps.get_url import GetVideoList
 from yt_concate.pipeline.steps.download_caption import DownloadCaption
+from yt_concate.pipeline.steps.setup import Setup
+from yt_concate.pipeline.steps.cleanup import Cleanup
 from yt_concate.pipeline.steps.step import StepException
 from yt_concate.pipeline.pipeline import Pipeline
 from yt_concate.user_input import inputs
-
+from yt_concate.utilities import Utilities
 
 # This project is using pipeline design pattern
 # Each task is a process in the steps
 # We execute each step in a pipeline
+
+
 def main():
     steps = [
+        Setup(),
         GetVideoList(),
         DownloadCaption(),
+        #Cleanup()
     ]
+    utils = Utilities()
     p = Pipeline(steps)
-    p.run(inputs)
+    p.run(inputs, utils)
 
 
 # make sure we are not execute anything else except main function
