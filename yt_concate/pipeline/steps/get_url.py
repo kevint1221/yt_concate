@@ -13,7 +13,8 @@ class GetVideoList(Step):
     def process(self, data, inputs, utils):
         channel_id = inputs['channel_id']
         api_key = inputs['api_key']
-
+        if utils.video_list_file_exits(channel_id):
+            return self.read_file(utils.get_video_list_file_path(channel_id))
         base_video_url = 'https://www.youtube.com/watch?v='
         # ask what channel is needed
         base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
@@ -42,5 +43,17 @@ class GetVideoList(Step):
                 break
         print(len(video_links))  #### this can be remove later
         print(video_links)
+        self.write_to_file(video_links, utils.get_video_list_file_path(channel_id))  # create a text file with channel id that contain all url videos
         return video_links
 
+    def write_to_file(self, video_links, file_path):
+        with open(file_path, 'w') as f:
+            for url in video_links:
+                f.write(url + '\n')
+
+    def read_file(self, file_path):
+        video_links = []
+        with open(file_path, 'r') as f:
+            for url in f:
+                video_links.append(url.strip())  # remove space
+            return video_links

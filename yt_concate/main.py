@@ -7,6 +7,8 @@ This Project will seize all youtube video from channel, download each video subt
     - API key: AIzaSyA_hVoPkhHJpczjjRVG74XurSs9H8F1s5w
         - API shouldn't be push to github for public uses
 2. get channel id: https://socialnewsify.com/get-channel-id-by-username-youtube/
+
+Known error: 403 forbidden happens when reached quota limits
 """
 
 from yt_concate.pipeline.steps.get_url import GetVideoList
