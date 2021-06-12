@@ -6,7 +6,7 @@ We are running this program with Pycharm <br>
 Package:<br>
 - pytube
 ```buildoutcfg
-pip install pytube3
+pip install pytube
 ```
 
 MAC User: <br>

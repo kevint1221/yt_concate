@@ -11,6 +11,7 @@ from yt_concate.pipeline.steps.step import Step
 
 class GetVideoList(Step):
     def process(self, data, inputs, utils):
+
         channel_id = inputs['channel_id']
         api_key = inputs['api_key']
         if utils.video_list_file_exits(channel_id):
@@ -44,6 +45,12 @@ class GetVideoList(Step):
         print(len(video_links))  #### this can be remove later
         print(video_links)
         self.write_to_file(video_links, utils.get_video_list_file_path(channel_id))  # create a text file with channel id that contain all url videos
+
+        # video_links = [
+        #     "https://www.youtube.com/watch?v=nkFMDApJ8iA",
+        #     "https://www.youtube.com/watch?v=WQ6DpK780gM",
+        #     "https://www.youtube.com/watch?v=_8obrgQjfnQ"
+        # ]
         return video_links
 
     def write_to_file(self, video_links, file_path):
