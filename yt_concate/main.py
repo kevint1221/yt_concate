@@ -14,11 +14,12 @@ Each function is organized using Pipeline Design Pattern.
 3.
 
 """
-
+from yt_concate.pipeline.steps.setup import Setup
+from yt_concate.pipeline.steps.initialize import Initialize
 from yt_concate.pipeline.steps.get_url import GetVideoList
 from yt_concate.pipeline.steps.download_caption import DownloadCaption
 from yt_concate.pipeline.steps.read_caption import ReadCaption
-from yt_concate.pipeline.steps.setup import Setup
+
 from yt_concate.pipeline.steps.cleanup import Cleanup
 from yt_concate.pipeline.steps.step import StepException
 from yt_concate.pipeline.pipeline import Pipeline
@@ -34,6 +35,7 @@ def main():
     steps = [
         Setup(),
         GetVideoList(),
+        Initialize(),
         DownloadCaption(),
         ReadCaption()
 

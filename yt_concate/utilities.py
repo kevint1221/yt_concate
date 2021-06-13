@@ -13,12 +13,7 @@ class Utilities:
         os.makedirs(VIDEOS_DIR, exist_ok=True)
         os.makedirs(CAPTIONS_DIR, exist_ok=True)
 
-    @staticmethod
-    def get_video_id_from_url(url):  # get video id from url
-        return url.split('watch?v=')[1]
 
-    def get_caption_file_path(self, url):  # get caption file path
-        return os.path.join(CAPTIONS_DIR, self.get_video_id_from_url(url) + '.txt')
 
     def caption_file_exists(self, url):  # get video id as caption file name
         path = self.get_caption_file_path(url)

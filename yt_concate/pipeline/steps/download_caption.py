@@ -9,7 +9,7 @@ from .step import StepException
 class DownloadCaption(Step):
     def process(self, data, inputs, utils):
         print(data)
-        for url in data:
+        for youtube_channel in data:
             print("generating caption for", url)
             # No caption available handling, caption doesn't always available or auto-generated
             if utils.caption_file_exists(url):
