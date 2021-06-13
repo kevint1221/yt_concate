@@ -35,7 +35,7 @@ def main():
         Setup(),
         GetVideoList(),
         DownloadCaption(),
-        #ReadCaption()
+        ReadCaption()
 
         #Cleanup()
     ]

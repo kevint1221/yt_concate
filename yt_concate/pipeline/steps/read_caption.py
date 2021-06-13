@@ -1,4 +1,5 @@
 import os
+import pprint
 from yt_concate.utilities import CAPTIONS_DIR
 from .step import Step
 
@@ -10,7 +11,7 @@ class ReadCaption(Step):
         data = {}  # data dictionary contain caption dictionary for each video
         for caption_file in os.listdir(CAPTIONS_DIR):
             captions = {}  # dictionary for all caption in this file
-            with open(caption_file, 'r') as f:
+            with open(os.path.join(CAPTIONS_DIR,caption_file), 'r') as f:
                 # store time and caption in dictionary for later use
                 time_line = True
                 time = None
@@ -25,6 +26,6 @@ class ReadCaption(Step):
                         captions[caption] = time  # we use caption as key so we can loop keyword to get time easier
                         time_line = False
             data[caption_file] = captions  # store dictionary of each video into data
-        print(data)
+        pprint.pprint(data)  # print readable dictionary
         return data
 
