@@ -10,15 +10,15 @@ class DownloadCaption(Step):
     def process(self, data, inputs, utils):
         print(data)
         for youtube_channel in data:
-            print("generating caption for", url)
+            print("generating caption for", youtube_channel.url)
             # No caption available handling, caption doesn't always available or auto-generated
-            if utils.caption_file_exists(url):
+            if utils.caption_file_exists(youtube_channel.url):
                 print('caption existed')
                 continue
 
             # error unknown download error handling
             try:
-                source = YouTube(url)
+                source = YouTube(youtube_channel.url)
             except KeyError as k:
                 print('encountered ', k, 'that this caption cannot be downloaded')
 
@@ -33,7 +33,7 @@ class DownloadCaption(Step):
             # if en_caption_convert_to_str never get generated caption
             if len(en_caption_convert_to_str) != 0:
                 print("writing to file now")
-                text_file = open(utils.get_caption_file_path(url), 'w', encoding='utf-8')
+                text_file = open(utils.get_caption_file_path(youtube_channel.url), 'w', encoding='utf-8')
                 text_file.write(en_caption_convert_to_str)
                 text_file.close()
                 print()

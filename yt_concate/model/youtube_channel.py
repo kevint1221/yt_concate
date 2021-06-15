@@ -5,10 +5,10 @@ from yt_concate.user_input import CAPTIONS_DIR, VIDEOS_DIR
 class YoutubeChannel:
     def __init__(self, url):
         self.url = url
-        self.id = self.get_video_id_from_url()
+        self.id = self.get_video_id_from_url(self.url)
         self.caption_file_path = self.get_caption_file_path()
         self.video_file_path = self.get_video_file_path()
-        # self.caption
+        self.captions = None
 
     @staticmethod
     def get_video_id_from_url(url):  # get video id from url

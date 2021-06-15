@@ -8,10 +8,13 @@ from .step import Step
 # time as a key, caption is the value
 class ReadCaption(Step):
     def process(self, data, inputs, utils):
-        data = {}  # data dictionary contain caption dictionary for each video
-        for caption_file in os.listdir(CAPTIONS_DIR):
-            captions = {}  # dictionary for all caption in this file
-            with open(os.path.join(CAPTIONS_DIR,caption_file), 'r') as f:
+
+        for youtubechannel in data:
+            #  if caption doesn't exist in the folder, do nothing
+            if not utils.caption_file_exists(youtubechannel):
+                continue
+            captions = {}
+            with open(youtubechannel.caption_file_path, 'r') as f:
                 # store time and caption in dictionary for later use
                 time_line = True
                 time = None
@@ -25,7 +28,6 @@ class ReadCaption(Step):
                         caption = line.strip()
                         captions[caption] = time  # we use caption as key so we can loop keyword to get time easier
                         time_line = False
-            data[caption_file] = captions  # store dictionary of each video into data
-        pprint.pprint(data)  # print readable dictionary
+            youtubechannel.captions = captions   # only changes here
         return data
 
