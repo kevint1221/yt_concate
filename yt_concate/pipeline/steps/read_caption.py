@@ -1,6 +1,4 @@
-import os
-import pprint
-from yt_concate.utilities import CAPTIONS_DIR
+
 from .step import Step
 
 

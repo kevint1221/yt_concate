@@ -1,4 +1,5 @@
 from .step import Step
+from yt_concate.model.found import Found
 
 
 class Search(Step):
@@ -9,4 +10,7 @@ class Search(Step):
             captions = youtubechannel.captions
             for caption in captions:
                 if search_word in caption:
-                    found.append(youtubechannel)
+                    time = captions[caption]
+                    f = Found(youtubechannel, caption, time)
+                    found.append(f)
+        return found

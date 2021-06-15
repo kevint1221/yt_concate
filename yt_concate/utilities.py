@@ -13,7 +13,7 @@ class Utilities:
         os.makedirs(CAPTIONS_DIR, exist_ok=True)
 
     def caption_file_exists(self, youtubechannel):  # get video id as caption file name
-        path = youtubechannel.get_caption_file_path()
+        path = youtubechannel.caption_file_path
         return os.path.exists(path) and os.path.getsize(path) > 0
 
     def get_video_list_file_path(self, channel_id):  # get video list file path

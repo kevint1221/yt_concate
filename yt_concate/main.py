@@ -19,7 +19,7 @@ from yt_concate.pipeline.steps.initialize import Initialize
 from yt_concate.pipeline.steps.get_url import GetVideoList
 from yt_concate.pipeline.steps.download_caption import DownloadCaption
 from yt_concate.pipeline.steps.read_caption import ReadCaption
-
+from yt_concate.pipeline.steps.search_in_caption import Search
 from yt_concate.pipeline.steps.cleanup import Cleanup
 from yt_concate.pipeline.steps.step import StepException
 from yt_concate.pipeline.pipeline import Pipeline
@@ -37,8 +37,8 @@ def main():
         GetVideoList(),
         Initialize(),
         DownloadCaption(),
-        ReadCaption()
-
+        ReadCaption(),
+        Search()
         #Cleanup()
     ]
     utils = Utilities()

@@ -12,7 +12,7 @@ class DownloadCaption(Step):
         for youtube_channel in data:
             print("generating caption for", youtube_channel.url)
             # No caption available handling, caption doesn't always available or auto-generated
-            if utils.caption_file_exists(youtube_channel.url):
+            if utils.caption_file_exists(youtube_channel):
                 print('caption existed')
                 continue
 
