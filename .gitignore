@@ -146,3 +146,6 @@ user_input.py
 
 # caption
 downloads/
+
+#mac file
+.DS_store

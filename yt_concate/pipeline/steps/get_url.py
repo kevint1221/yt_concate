@@ -48,9 +48,10 @@ class GetVideoList(Step):
         # self.write_to_file(video_links, utils.get_video_list_file_path(channel_id))  # create a text file with channel id that contain all url videos
 
         video_links = [
-            "https://www.youtube.com/watch?v=nkFMDApJ8iA",
-            "https://www.youtube.com/watch?v=WQ6DpK780gM",
-            "https://www.youtube.com/watch?v=_8obrgQjfnQ"
+            # "https://www.youtube.com/watch?v=nkFMDApJ8iA",
+            # "https://www.youtube.com/watch?v=WQ6DpK780gM",
+            # "https://www.youtube.com/watch?v=_8obrgQjfnQ",
+            "https://www.youtube.com/watch?v=1QHJksTrk8s"
         ]
         return video_links
 

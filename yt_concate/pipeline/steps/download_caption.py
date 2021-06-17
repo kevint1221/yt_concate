@@ -9,21 +9,25 @@ from .step import StepException
 class DownloadCaption(Step):
     def process(self, data, inputs, utils):
         print(data)
+        #data2 = ["https://youtu.be/1QHJksTrk8s"]
         for youtube_channel in data:
-            print("generating caption for", youtube_channel.url)
+
             # No caption available handling, caption doesn't always available or auto-generated
             if utils.caption_file_exists(youtube_channel):
                 print('caption existed')
                 continue
 
+            print("generating caption for", youtube_channel.url)
             # error unknown download error handling
             try:
                 source = YouTube(youtube_channel.url)
+
             except KeyError as k:
                 print('encountered ', k, 'that this caption cannot be downloaded')
 
             en_caption_convert_to_str = ""
 
+            print(source.captions)
             language_code = find_caption_code(source)
 
             if len(language_code) != 0:
@@ -33,11 +37,11 @@ class DownloadCaption(Step):
             # if en_caption_convert_to_str never get generated caption
             if len(en_caption_convert_to_str) != 0:
                 print("writing to file now")
-                text_file = open(utils.get_caption_file_path(youtube_channel.url), 'w', encoding='utf-8')
+                text_file = open(youtube_channel.caption_file_path, 'w', encoding='utf-8')
                 text_file.write(en_caption_convert_to_str)
                 text_file.close()
                 print()
-
+        return data
 
 def find_caption_code(source):
     english = False
