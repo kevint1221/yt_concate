@@ -16,6 +16,6 @@ class Search(Step):
                     f = Found(youtubechannel, caption, time)
                     found.append(f)
         print("executing found")
-        for i in found:
-            print(i.caption)
+        # for i in found:
+        #     print(i.caption)
         return found
