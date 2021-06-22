@@ -18,4 +18,5 @@ class Search(Step):
         print("executing found")
         # for i in found:
         #     print(i.caption)
+        print(len(found))  # how many times keywords are said
         return found

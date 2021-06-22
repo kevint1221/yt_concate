@@ -11,7 +11,8 @@ Each function is organized using Pipeline Design Pattern.
     - get channel id: https://socialnewsify.com/get-channel-id-by-username-youtube/
     - KNOWN ERROR: 403 forbidden happens when reached quota limits
 2. Download each video caption using pytube library
-3.
+3. Read the captions file and calculate keyboard said
+4. Download Video
 
 """
 from yt_concate.pipeline.steps.setup import Setup

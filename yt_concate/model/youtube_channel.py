@@ -19,3 +19,9 @@ class YoutubeChannel:
 
     def get_video_file_path(self):  # get caption file path
         return os.path.join(VIDEOS_DIR, self.id + '.txt')
+
+    def __str__(self):
+        return 'YT<' + self.id + '>'
+
+    def __repr__(self):
+        return 'id = ' + str(self.id) + ' : ' + 'caption_file_path = ' + str(self.caption_file_path) + ' : ' + 'video_file_path = ' + str(self.video_file_path)
