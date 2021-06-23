@@ -14,7 +14,7 @@ class Search(Step):
                 if search_word in caption:
                     time = captions[caption]
                     f = Found(youtubechannel, caption, time)
-                    found.append(f)
+                    found.append(f)  # store found class contains youtube channel, caption found and time in the caption
         print("executing found")
         # for i in found:
         #     print(i.caption)
